@@ -1,0 +1,14 @@
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 5vh;
+    padding-inline: 1em;
+
+    background-color: lightblue;
+
+    a {
+        margin-inline-start: 1em;
+    }
+}
