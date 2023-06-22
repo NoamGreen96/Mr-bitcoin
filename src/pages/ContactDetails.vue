@@ -26,8 +26,7 @@ export default {
 
 <style lang="scss">
 .contact-details {
-  // max-width: 400px;
-  height: 60vh;
+  height: 70vh;
   padding: 20px;
   background-color: #3333336d;
   border-radius: 4px;
