@@ -1,7 +1,8 @@
 <template>
   <article v-if="contact" class="contact-details">
-    <h2>{{ contact.email }}</h2>
-    <h3>{{ contact.phone }}</h3>
+    <h1>Name: {{ contact.name }}</h1>
+    <h2>Email: {{ contact.email }}</h2>
+    <h3>Phone: {{ contact.phone }}</h3>
     <RouterLink to="/contact">
       <button class="back-button">Back</button>
     </RouterLink>
@@ -19,14 +20,14 @@ export default {
   },
   async created() {
     const contactId = this.$route.params.id
-    this.contact = await contactService.getContactById(contactId)
+    this.contact = await contactService.getById(contactId)
   },
 }
 </script>
 
 <style lang="scss">
 .contact-details {
-  height: 70vh;
+  min-height: calc(90vh - 4em);
   padding: 20px;
   background-color: #3333336d;
   border-radius: 4px;
@@ -49,7 +50,7 @@ h3 {
   border: none;
   border-radius: 4px;
   position: fixed;
-  bottom: 25em;
+  bottom: 8em;
   right: 2em;
   cursor: pointer;
 }

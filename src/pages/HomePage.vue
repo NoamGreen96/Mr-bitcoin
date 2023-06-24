@@ -23,9 +23,9 @@ export default {
     const bitcoinRate = ref(0)
 
     onMounted(async () => {
-      // const user = await userService.getUser()
-      // username.value = user.username
-      // balance.value = user.balance
+      const user = await userService.getUser()
+      username.value = user.name
+      balance.value = user.balance
 
       const rate = await bitcoinService.getRate()
       bitcoinRate.value = rate.USD.last

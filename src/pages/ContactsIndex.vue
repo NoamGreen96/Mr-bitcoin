@@ -14,7 +14,6 @@
 <script>
 import { contactService } from '@/services/contact.service'
 import { eventBus } from '@/services/eventBus.service'
-import { userService } from '@/services/user.service'
 
 import ContactsList from '@/cmps/ContactList.vue'
 import ContactsFilter from '@/cmps/ContactFilter.vue'
@@ -33,7 +32,7 @@ export default {
         txt: `Contact ${contactId} removed...`,
         type: 'success',
       }
-      await contactService.deleteContact(contactId)
+      await contactService.remove(contactId)
 
       const idx = this.contacts.findIndex((contact) => contact._id === contactId)
       this.contacts.splice(idx, 1)
@@ -51,7 +50,7 @@ export default {
     },
   },
   async created() {
-    this.contacts = await contactService.getContacts()
+    this.contacts = await contactService.query()
   },
   components: {
     ContactsList,

@@ -24,7 +24,9 @@ export const bitcoinService = {
     const url = `https://api.blockchain.info/charts/market-price?timespan=${timespan}&format=json&cors=true`
     const response = await axios.get(url)
     const data = response.data
-    storageService.put(cacheKey, data)
+    console.log(data)
+    utilService.saveToStorage(`marketPriceHistory-${timespan}`, data)
+    // storageService.put(cacheKey, data)
     return data
   },
 
@@ -35,7 +37,7 @@ export const bitcoinService = {
       return cachedData
     }
 
-    const url = `https://api.blockchain.info/charts/avg-blocksize? timespan=${timespan}&format=json&cors=true`
+    const url = `https://api.blockchain.info/charts/avg-blocksize?timespan=${timespan}&format=json&cors=true`
     const response = await axios.get(url)
     const data = response.data
     storageService.put(cacheKey, data)

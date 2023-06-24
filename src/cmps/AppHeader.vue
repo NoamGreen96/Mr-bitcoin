@@ -24,8 +24,8 @@ export default {
     const bitcoinRate = ref(0)
 
     onMounted(async () => {
-      // const user = await userService.get(userId)
-      // username.value = user.username
+      const user = await userService.getUser()
+      username.value = user.name
 
       const rate = await bitcoinService.getRate()
       bitcoinRate.value = rate.USD.last
@@ -65,5 +65,10 @@ nav a:hover {
 
 p {
   margin: 0;
+}
+@media (max-width: 400px) {
+  .user-info {
+    display: none;
+  }
 }
 </style>

@@ -10,14 +10,21 @@ export default {
 </script>
 
 <template>
-  <AppHeader />
-  <main class="main-content">
-    <RouterView />
+  <main class="main-layout">
+    <AppHeader />
+    <main class="main-content">
+      <RouterView />
+    </main>
+    <AppFooter />
   </main>
-  <AppFooter />
 </template>
 
 <style scoped>
+.main-layout {
+  display: grid;
+  grid-template-rows: 60px 1fr 60px;
+}
+
 .main-content {
   min-height: calc(90vh - 4em);
 }

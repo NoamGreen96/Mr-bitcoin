@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     async save() {
-      await contactService.saveContact(this.contact)
+      await contactService.save(this.contact)
       console.log(this.contact)
       this.$router.push('/contact')
     },
@@ -35,7 +35,7 @@ export default {
   async created() {
     const contactId = this.$route.params.id
     if (contactId) {
-      this.contact = await contactService.getContactById(contactId)
+      this.contact = await contactService.getById(contactId)
     } else {
       this.contact = contactService.getEmptyContact()
     }
